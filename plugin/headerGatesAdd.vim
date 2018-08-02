@@ -157,9 +157,6 @@ def cplusHeaderGates():
     gatename = generateGateName(name)
     b = vim.current.buffer
     n = getInsertLine()
-    if n > 0:
-        b.append("\n", n)
-        n+=1
 
     b.append(["#ifndef " + gatename,
                 "#define " + gatename,
@@ -177,7 +174,7 @@ def cplusHeaderGates():
         b.append("#endif")
         b.append("\n")
 
-    b.append("#endif" + "  /*" + gatename +"*/")
+    b.append("#endif" + "  /* " + gatename +" */")
 
 cplusHeaderGates()
 #generateGateName("aTest.h")
